@@ -7,3 +7,5 @@ export const FirebaseConfig = {
   messagingSenderId: '',
   appId: ''
 };
+
+export const GoogleMapsKey = '';
