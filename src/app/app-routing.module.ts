@@ -12,6 +12,13 @@ const routes: Routes = [
       import('./collection-centers/collection-centers.module').then(
         m => m.CollectionCentersModule
       )
+  },
+  {
+    path: 'formulario',
+    loadChildren: () =>
+      import('./contact-ant/contact-ant.module').then(
+        module => module.ContactAntModule
+      )
   }
 ];
 
