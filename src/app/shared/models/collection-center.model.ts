@@ -1,8 +1,4 @@
 import { Geolocation } from './geolocation.model';
+import { Contact } from './contact.model';
 
-export interface CollectionCenter extends Geolocation {
-  id: string;
-  name: string;
-  phone: string;
-  cellphone: string;
-}
+export interface CollectionCenter extends Geolocation, Contact {}

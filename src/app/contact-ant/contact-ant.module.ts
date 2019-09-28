@@ -7,10 +7,11 @@ import { ContactAntFormComponent } from './contact-ant-form/contact-ant-form.com
 import { SelectModule } from '../shared/directives/select/select.module';
 import { DatepickerModule } from '../shared/directives/datepicker/datepicker.module';
 import { TimepickerModule } from '../shared/directives/timepicker/timepicker.module';
+import { AntProfileComponent } from './ant-profile/ant-profile.component';
 
 
 @NgModule({
-  declarations: [ContactAntFormComponent],
+  declarations: [ContactAntFormComponent, AntProfileComponent],
   imports: [
     CommonModule,
     FormsModule,
