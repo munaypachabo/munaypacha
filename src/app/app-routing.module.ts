@@ -5,6 +5,13 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'centros-de-acopio',
+    loadChildren: () =>
+      import('./collection-centers/collection-centers.module').then(
+        m => m.CollectionCentersModule
+      )
   }
 ];
 
