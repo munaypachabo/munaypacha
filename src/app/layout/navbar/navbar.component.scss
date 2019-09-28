@@ -1,6 +1,14 @@
 @import '../../../styles.variables';
 
-#hak-logotype {
+.nav-wrapper {
+  margin: 0 10px;
+
+  @media #{$medium-and-up} {
+    margin: 0 50px;
+  }
+}
+
+#pacha-logotype {
   object-fit: contain;
   height: 50px;
   padding-top: 3px;
