@@ -1,12 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 const routes: Routes = [
   {
-    path: 'contact-ant-form',
+    path: '',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'centros-de-acopio',
     loadChildren: () =>
-      import('./contact-ant/contact-ant.module').then(module => module.ContactAntModule)
+      import('./collection-centers/collection-centers.module').then(
+        m => m.CollectionCentersModule
+      )
+  },
+  {
+    path: 'formulario',
+    loadChildren: () =>
+      import('./contact-ant/contact-ant.module').then(
+        module => module.ContactAntModule
+      )
   }
 ];
 
@@ -14,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
