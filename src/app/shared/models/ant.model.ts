@@ -3,4 +3,5 @@ import { Geolocation } from './geolocation.model';
 
 export interface Ant extends Contact, Geolocation {
     bio: string;
+    pic: string;
 }

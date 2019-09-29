@@ -14,7 +14,7 @@ const routes: Routes = [
       )
   },
   {
-    path: 'formulario',
+    path: 'contactar-hormiga',
     loadChildren: () =>
       import('./contact-ant/contact-ant.module').then(
         module => module.ContactAntModule
