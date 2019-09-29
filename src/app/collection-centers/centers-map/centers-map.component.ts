@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
@@ -13,13 +14,16 @@ import { CollectionCenter } from '../../shared/models/collection-center.model';
 export class CentersMapComponent implements OnInit {
   collectionCenters$: Observable<CollectionCenter[]>;
 
-  constructor(private centersService: CollectionCenterService) {}
+  constructor(
+    private router: Router,
+    private centersService: CollectionCenterService
+  ) {}
 
   ngOnInit(): void {
     this.collectionCenters$ = this.centersService.getAll();
   }
 
   seeCenterData(center: CollectionCenter): void {
-    console.log(center);
+    this.router.navigate(['/centros-de-acopio/perfil', center.id]);
   }
 }

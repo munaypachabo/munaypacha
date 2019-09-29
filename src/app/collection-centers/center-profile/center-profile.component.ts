@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { CollectionCenter } from 'src/app/shared/models/collection-center.model';
+import { Observable } from 'rxjs';
+
+import { CollectionCenterService } from '../collection-center.service';
+import { CollectionCenter } from '../../shared/models/collection-center.model';
 
 @Component({
   selector: 'pacha-center-profile',
@@ -8,22 +12,16 @@ import { CollectionCenter } from 'src/app/shared/models/collection-center.model'
   styleUrls: ['./center-profile.component.scss']
 })
 export class CenterProfileComponent implements OnInit {
-  collectionCenter: CollectionCenter;
+  centerId: string;
+  collectionCenter$: Observable<CollectionCenter>;
 
-  constructor() {}
+  constructor(
+    private route: ActivatedRoute,
+    private centerService: CollectionCenterService
+  ) {}
 
-  ngOnInit() {
-    this.collectionCenter = {
-      id: '123',
-      name: 'Barrientos',
-      phone: '4542802',
-      pic:
-        'https://wastechcostarica.files.wordpress.com/2014/08/centros-de-acopio-de-residuos.jpg',
-      cellphone: '75997855',
-      position: {
-        lat: '',
-        lng: ''
-      }
-    };
+  ngOnInit(): void {
+    this.centerId = this.route.snapshot.paramMap.get('id');
+    this.collectionCenter$ = this.centerService.getById(this.centerId);
   }
 }

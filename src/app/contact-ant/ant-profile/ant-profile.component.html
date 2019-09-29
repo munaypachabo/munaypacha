@@ -3,7 +3,7 @@
     <div class="center-align">
       <h5>Estás ayudando a {{ ant.name }}</h5>
       <br>
-      <img class="circle responsive-im" [src]="ant.pic">
+      <img class="circle responsive-img" [src]="ant.pic">
       <p>
         {{ ant.bio }}
       </p>
@@ -14,12 +14,12 @@
       <div class="center-align">
         <div class="inline">
           <a [routerLink]="['/contactar-hormiga/formulario', antId]"
-            class="btn-floating btn-large waves-effect waves-light green">
+            class="btn-floating btn-large waves-effect waves-light">
             <i class="fab fa-whatsapp"></i>
           </a>
         </div>
         <div class="inline">
-          <a [href]="'tel:+591' + ant.cellphone" class="btn-floating btn-large waves-effect waves-light green">
+          <a [href]="'tel:+591' + ant.cellphone" class="btn-floating btn-large waves-effect waves-light">
             <i class="fas fa-phone"></i>
           </a>
         </div>
