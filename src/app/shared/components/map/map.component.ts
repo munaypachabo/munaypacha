@@ -1,10 +1,20 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
-import { Observable } from 'rxjs';
-
-import { Geolocation } from '../../models/geolocation.model';
+import { MapService } from './map.service';
+import { Contact } from '../../models/contact.model';
 
 declare const google: any;
+
+const COCHA_LAT = -17.393695;
+const COCHA_LNG = -66.157126;
 
 @Component({
   selector: 'pacha-map',
@@ -12,27 +22,39 @@ declare const google: any;
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  lat = -17.393695;
-  lng = -66.157126;
+  lat = COCHA_LAT;
+  lng = COCHA_LNG;
   zoom = 17;
+  styles: any[];
   @Input()
-  locations: Observable<Geolocation[]>;
+  items: Contact[] = [];
+  @Output()
+  triggerItemAction = new EventEmitter<Contact>();
   private map: any;
   @ViewChild('locationElement', { static: false })
   private locationControlElement: ElementRef;
 
+  constructor(private mapService: MapService) {}
+
   ngOnInit(): void {
-    this.centerMapOnCurrentUserLocation();
+    this.mapService.getStyles().subscribe(styles => (this.styles = styles));
   }
 
   centerMapOnCurrentUserLocation(): void {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.lat = position.coords.latitude;
-        this.lng = position.coords.longitude;
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
 
-        this.map.setCenter({ lat: this.lat, lng: this.lng });
-      });
+          this.map.setCenter({ lat: this.lat, lng: this.lng });
+        },
+        () => {
+          this.handleLocationError(true);
+        }
+      );
+    } else {
+      this.handleLocationError(false);
     }
   }
 
@@ -43,5 +65,16 @@ export class MapComponent implements OnInit {
       this.locationControlElement.nativeElement
     );
     this.centerMapOnCurrentUserLocation();
+  }
+
+  private handleLocationError(browserHasGeolocation: boolean): void {
+    this.lat = COCHA_LAT;
+    this.lng = COCHA_LNG;
+    const errorMessage = browserHasGeolocation
+      ? 'Error: El servicio de Geolocalización falló.'
+      : 'Error: Tu navegador no soporta Geolocalización.';
+
+    this.map.setCenter({ lat: this.lat, lng: this.lng });
+    console.error(errorMessage);
   }
 }
