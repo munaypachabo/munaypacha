@@ -6,15 +6,12 @@ import { AgmCoreModule } from '@agm/core';
 
 import { MapComponent } from './map.component';
 import { MapService } from './map.service';
-import { environment } from '../../../../environments/environment';
 
 @NgModule({
   declarations: [MapComponent],
   imports: [
     CommonModule,
-    AgmCoreModule.forRoot({
-      apiKey: environment.googlemaps
-    }),
+    AgmCoreModule,
     HttpClientModule
   ],
   exports: [MapComponent],
