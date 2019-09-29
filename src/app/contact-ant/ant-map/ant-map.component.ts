@@ -13,6 +13,8 @@ import { Ant } from '../../shared/models/ant.model';
 })
 export class AntMapComponent implements OnInit {
   ants$: Observable<Ant[]>;
+  defaultMapImage = 'assets/images/ant.png';
+  defaultPinImage = 'assets/images/no-photo.png';
 
   constructor(private router: Router, private antService: AntService) {}
 

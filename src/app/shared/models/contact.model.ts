@@ -10,4 +10,5 @@ export interface Contact {
   phone: string;
   cellphone: string;
   position: Position;
+  data?: string;
 }
