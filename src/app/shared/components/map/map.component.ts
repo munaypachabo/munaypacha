@@ -24,10 +24,14 @@ const COCHA_LNG = -66.157126;
 export class MapComponent implements OnInit {
   lat = COCHA_LAT;
   lng = COCHA_LNG;
-  zoom = 17;
+  zoom = 15;
   styles: any[];
   @Input()
   items: Contact[] = [];
+  @Input()
+  defaultItemImage = 'assets/images/recycle.png';
+  @Input()
+  defaultPinImage = 'assets/images/centroAcopio.png';
   @Output()
   triggerItemAction = new EventEmitter<Contact>();
   private map: any;

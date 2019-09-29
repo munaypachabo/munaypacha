@@ -3,11 +3,19 @@
   <agm-marker [latitude]="lat" [longitude]="lng" iconUrl="assets/images/current-human-location.png">
   </agm-marker>
 
-  <agm-marker *ngFor="let item of items" [latitude]="item.position.lat" [longitude]="item.position.lng">
+  <agm-marker *ngFor="let item of items" [latitude]="item.position.lat" [longitude]="item.position.lng" [iconUrl]="defaultItemImage">
     <agm-info-window>
-      <a (click)="triggerItemAction.emit(item)">
-        {{ item.name }}
-      </a>
+      <div class="align-center">
+        <div>
+          <img [src]="item.pic ? item.pic : defaultPinImage" alt="" class="pin-img circle responsive-img">
+        </div>
+        <div>
+          <a (click)="triggerItemAction.emit(item)">
+            {{ item.name }}
+          </a>
+        </div>
+        <p>{{ item.data }}</p>
+      </div>
     </agm-info-window>
   </agm-marker>
 
