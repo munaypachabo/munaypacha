@@ -1,0 +1,3 @@
+<ng-container *ngIf="(ants$ | async) as ants">
+  <pacha-map [items]="ants" (triggerItemAction)="seeAntData($event)"></pacha-map>
+</ng-container>

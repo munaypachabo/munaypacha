@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
+import { Observable } from 'rxjs';
+
+import { AntService } from '../ant.service';
 import { Ant } from '../../shared/models/ant.model';
 
 @Component({
@@ -9,7 +12,8 @@ import { Ant } from '../../shared/models/ant.model';
   styleUrls: ['./contact-ant-form.component.scss']
 })
 export class ContactAntFormComponent implements OnInit {
-  ant: Ant;
+  antId: string;
+  ant$: Observable<Ant>;
   name: string;
   address: string;
   trashType: string;
@@ -18,33 +22,16 @@ export class ContactAntFormComponent implements OnInit {
   hour: any;
   cellphone: number;
 
-  constructor(private router: Router) {}
+  constructor(private route: ActivatedRoute, private antService: AntService) {}
 
-  ngOnInit() {
-    this.ant = {
-      id: '123',
-      name: 'Lupe Meneses',
-      bio:
-        'Doña Lupe trabaja de lunes a jueves recogiendo botellas para poder mantener a sus 3 hijitos de 2, 3 y 4 años.',
-      pic:
-        'http://2.bp.blogspot.com/_mK1SR8qvlwA/S4LSH1nGrDI/AAAAAAAAABw/g-LhCaPEGSw/s400/ni_a_quime_a2.jpg',
-      cellphone: '75997855',
-      phone: '4542804'
-    };
+  ngOnInit(): void {
+    this.antId = this.route.snapshot.paramMap.get('id');
+    this.ant$ = this.antService.getById(this.antId);
   }
 
-  contactAnt(): void {
-    console.log(
-      this.name,
-      this.address,
-      this.trashType,
-      this.trashQuantity,
-      this.day,
-      this.hour,
-      this.cellphone
-    );
-    const message = `Estimada Sr(a). ${this.ant.name}, mi nombre es ${this.name} vivo en la ${this.address}, tengo ${this.trashQuantity} aprox. de ${this.trashType}; quisiera que por favor pase a recoger este ${this.day} a las ${this.hour}`;
-    const whatsappLink = `https://api.whatsapp.com/send?phone=591${this.ant.cellphone}&text=${message}`;
-    window.location.href = whatsappLink;
+  contactAnt(ant: Ant): void {
+    const message = `Estimada Sr(a). ${ant.name}, mi nombre es ${this.name} vivo en la ${this.address}, tengo ${this.trashQuantity} aprox. de ${this.trashType}; quisiera que por favor pase a recoger este ${this.day} a las ${this.hour}`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=591${ant.cellphone}&text=${message}`;
+    window.open(whatsappLink, '_blank');
   }
 }

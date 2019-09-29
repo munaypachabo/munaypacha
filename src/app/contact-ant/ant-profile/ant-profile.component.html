@@ -1,25 +1,29 @@
 <div class="container">
-  <div class="center-align">
-    <h5>Estas ayudando a:</h5>
-    <h5>{{ant.name}}</h5>
-    <br>
-    <img class="circle responsive-im" [src]="ant.pic">
-    <p>
-      {{ant.bio}}
-    </p>
-    <h6>Gracias por hacer de este mundo un lugar mejor!!</h6>
-  </div>
-  <br>
-  <div class="row">
+  <ng-container *ngIf="(ant$ | async) as ant">
     <div class="center-align">
-      <div class="inline">
-        <a routerLink="/contactar-hormiga/formulario" class="btn-floating btn-large waves-effect waves-light green"><i
-            class="fab fa-whatsapp"></i></a>
-      </div>
-      <div class="inline">
-        <a [href]="antCellphone" class="btn-floating btn-large waves-effect waves-light green"><i
-            class="fas fa-phone"></i></a>
+      <h5>Estás ayudando a {{ ant.name }}</h5>
+      <br>
+      <img class="circle responsive-im" [src]="ant.pic">
+      <p>
+        {{ ant.bio }}
+      </p>
+      <h6>¡Gracias por hacer de este mundo un lugar mejor para {{ ant.name }}!</h6>
+    </div>
+    <br>
+    <div class="row">
+      <div class="center-align">
+        <div class="inline">
+          <a [routerLink]="['/contactar-hormiga/formulario', antId]"
+            class="btn-floating btn-large waves-effect waves-light green">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <div class="inline">
+          <a [href]="'tel:+591' + ant.cellphone" class="btn-floating btn-large waves-effect waves-light green">
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>

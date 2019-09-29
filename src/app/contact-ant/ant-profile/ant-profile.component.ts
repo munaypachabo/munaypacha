@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
+import { Observable } from 'rxjs';
+
+import { AntService } from '../ant.service';
 import { Ant } from '../../shared/models/ant.model';
 
 @Component({
@@ -8,22 +12,13 @@ import { Ant } from '../../shared/models/ant.model';
   styleUrls: ['./ant-profile.component.scss']
 })
 export class AntProfileComponent implements OnInit {
-  ant: Ant;
-  antCellphone: string;
+  ant$: Observable<Ant>;
+  antId: string;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute, private antService: AntService) {}
 
-  ngOnInit() {
-    this.ant = {
-      id: '123',
-      name: 'Lupe Meneses',
-      bio:
-        'Doña Lupe trabaja de lunes a jueves recogiendo botellas para poder mantener a sus 3 hijitos de 2, 3 y 4 años.',
-      pic:
-        'http://2.bp.blogspot.com/_mK1SR8qvlwA/S4LSH1nGrDI/AAAAAAAAABw/g-LhCaPEGSw/s400/ni_a_quime_a2.jpg',
-      cellphone: '75997855',
-      phone: '4542804'
-    };
-    this.antCellphone = `tel:+591${this.ant.cellphone}`;
+  ngOnInit(): void {
+    this.antId = this.route.snapshot.paramMap.get('id');
+    this.ant$ = this.antService.getById(this.antId);
   }
 }
