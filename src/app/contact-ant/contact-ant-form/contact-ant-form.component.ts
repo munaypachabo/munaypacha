@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Ant } from 'src/app/shared/models/ant.model';
+import { Ant } from '../../shared/models/ant.model';
 
 @Component({
   selector: 'pacha-contact-ant-form',

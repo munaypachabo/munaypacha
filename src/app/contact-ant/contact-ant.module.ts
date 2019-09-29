@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 
 import { ContactAntRoutingModule } from './contact-ant-routing.module';
 import { ContactAntFormComponent } from './contact-ant-form/contact-ant-form.component';
+import { AntProfileComponent } from './ant-profile/ant-profile.component';
 import { SelectModule } from '../shared/directives/select/select.module';
 import { DatepickerModule } from '../shared/directives/datepicker/datepicker.module';
 import { TimepickerModule } from '../shared/directives/timepicker/timepicker.module';
-import { AntProfileComponent } from './ant-profile/ant-profile.component';
 
 
 @NgModule({

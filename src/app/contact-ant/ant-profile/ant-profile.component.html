@@ -3,8 +3,7 @@
     <h5>Estas ayudando a:</h5>
     <h5>{{ant.name}}</h5>
     <br>
-    <img class="circle responsive-im"
-      [src]="ant.pic">
+    <img class="circle responsive-im" [src]="ant.pic">
     <p>
       {{ant.bio}}
     </p>
@@ -12,13 +11,15 @@
   </div>
   <br>
   <div class="row">
-      <div class="center-align">
-          <div class="inline">
-              <a routerLink="/contactar-hormiga/formulario" class="btn-floating btn-large waves-effect waves-light green"><i class="fab fa-whatsapp"></i></a>
-          </div>
-          <div class="inline">
-              <a [href]="antCellphone" class="btn-floating btn-large waves-effect waves-light green"><i class="fas fa-phone"></i></a>
-          </div>
+    <div class="center-align">
+      <div class="inline">
+        <a routerLink="/contactar-hormiga/formulario" class="btn-floating btn-large waves-effect waves-light green"><i
+            class="fab fa-whatsapp"></i></a>
       </div>
+      <div class="inline">
+        <a [href]="antCellphone" class="btn-floating btn-large waves-effect waves-light green"><i
+            class="fas fa-phone"></i></a>
+      </div>
+    </div>
   </div>
 </div>

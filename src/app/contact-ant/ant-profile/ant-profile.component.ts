@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Ant } from 'src/app/shared/models/ant.model';
+import { Ant } from '../../shared/models/ant.model';
 
 @Component({
   selector: 'pacha-ant-profile',
@@ -10,6 +10,7 @@ import { Ant } from 'src/app/shared/models/ant.model';
 export class AntProfileComponent implements OnInit {
   ant: Ant;
   antCellphone: string;
+
   constructor() {}
 
   ngOnInit() {
