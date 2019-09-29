@@ -20,9 +20,13 @@ export class AntProfileComponent implements OnInit {
       bio:
         'Doña Lupe trabaja de lunes a jueves recogiendo botellas para poder mantener a sus 3 hijitos de 2, 3 y 4 años.',
       pic:
-        'http://2.bp.blogspot.com/_mK1SR8qvlwA/S4LSH1nGrDI/AAAAAAAAABw/g-LhCaPEGSw/s400/ni_a_quime_a2.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBfpYC2YUEm1f2H8YskUExDngwC9g70nc5tkCU70fCIIyvoCb1',
       cellphone: '75997855',
-      phone: '4542804'
+      phone: '4542804',
+      position: {
+        lat: '',
+        lng: ''
+      }
     };
     this.antCellphone = `tel:+591${this.ant.cellphone}`;
   }
