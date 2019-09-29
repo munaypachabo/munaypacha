@@ -1,6 +1,5 @@
 import { Contact } from './contact.model';
-import { Geolocation } from './geolocation.model';
 
-export interface Ant extends Contact, Geolocation {
+export interface Ant extends Contact {
     bio: string;
 }
