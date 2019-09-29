@@ -1,11 +1,11 @@
 <div class="container section">
   <ng-container *ngIf="(collectionCenter$ | async) as collectionCenter">
     <div class="center-align">
-      <h5>Centro de acopio:</h5>
+      <h5>Centro de acopio</h5>
       <h5>{{ collectionCenter.name }}</h5>
       <br>
       <img class="circle responsive-img"
-        [src]="collectionCenter.pic ? collectionCenter.pic : '../../../assets/images/centroAcopio.png'">
+        [src]="collectionCenter.pic ? collectionCenter.pic : 'assets/images/centroAcopio.png'">
     </div>
     <br>
     <div class="row">

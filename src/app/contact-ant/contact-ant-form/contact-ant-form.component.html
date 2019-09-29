@@ -1,15 +1,33 @@
 <div class="container section">
+  <p>Selecciona el lugar donde quieres que la hormiguita vaya a recoger la basura:</p>
+</div>
+<agm-map class="pacha-map" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [styles]="styles"
+  (mapReady)="addLocationElement($event)" (mapClick)="setUserLocation($event)">
+  <agm-marker [latitude]="currentUserLat" [longitude]="currentUserLng"
+    iconUrl="assets/images/current-human-location.png">
+  </agm-marker>
+
+  <div #locationElement>
+    <a id="location-button" (click)="centerMapOnCurrentUserLocation()">
+      <img src="assets/images/my-location-2x.png">
+    </a>
+  </div>
+</agm-map>
+<div class="container section">
   <ng-container *ngIf="(ant$ | async) as ant">
+    <p>Llena tus datos, los datos de los desechos reciclables y la fecha en que te gustaría que la hormiguita pase a
+      recogerlos:
+    </p>
     <div class="row">
-      <form class="col s12">
+      <form #contactForm="ngForm" class="col s12">
         <div class="row">
           <div class="input-field col s12 m6">
-            <input [(ngModel)]="name" id="name" name="name" type="text">
+            <input [(ngModel)]="name" id="name" name="name" type="text" class="validate" required>
             <label for="name">Nombre</label>
           </div>
           <div class="input-field col s12 m6">
             <input [(ngModel)]="address" id="address" name="address" type="text">
-            <label for="address">Dirección</label>
+            <label for="address">Referencias del lugar (Ej: # de casa, color)</label>
           </div>
         </div>
         <div class="row">
@@ -39,19 +57,13 @@
           </div>
           <div class="input-field col s6">
             <input #hourTimepicker=timepickerDirective pachaTimepicker id="hour" type="text" class="timepicker"
-              name="hour" (timepickerClose)="hour = hourTimepicker.timepickerInstance.time">
+              name="hour" (timepickerClose)="setHour(hourTimepicker.timepickerInstance)">
             <label for="hour">Hora</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="cellphone" type="number" [(ngModel)]="cellphone" name="cellphone">
-            <label for="cellphone">Celular</label>
           </div>
         </div>
       </form>
       <div class="row center-align">
-        <button (click)="contactAnt(ant)" class="btn btn-large waves-effect waves-light"
+        <button [disabled]="contactForm.invalid" (click)="contactAnt(ant)" class="btn btn-large waves-effect waves-light"
           name="action">Contactar</button>
       </div>
     </div>
