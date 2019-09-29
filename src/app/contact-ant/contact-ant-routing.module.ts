@@ -3,19 +3,24 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ContactAntFormComponent } from './contact-ant-form/contact-ant-form.component';
 import { AntProfileComponent } from './ant-profile/ant-profile.component';
+import { AntMapComponent } from './ant-map/ant-map.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'formulario'
+    redirectTo: 'mapa'
   },
   {
-    path: 'formulario',
-    component: ContactAntFormComponent
+    path: 'mapa',
+    component: AntMapComponent
   },
   {
-    path: 'perfil',
+    path: 'perfil/:id',
     component: AntProfileComponent
+  },
+  {
+    path: 'formulario/:id',
+    component: ContactAntFormComponent
   }
 ];
 
