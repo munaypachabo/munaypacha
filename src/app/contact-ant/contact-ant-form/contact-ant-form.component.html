@@ -33,11 +33,13 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input pachaDatepicker id="day" type="text" class="datepicker" [(ngModel)]="day" name="day">
+            <input #dayDatepicker=datepickerDirective pachaDatepicker id="day" type="text" class="datepicker" name="day"
+              (datepickerClose)="setDay(dayDatepicker.datepickerInstance.date)">
             <label for="day">Día</label>
           </div>
           <div class="input-field col s6">
-            <input pachaTimepicker id="hour" type="text" class="timepicker" [(ngModel)]="hour" name="hour">
+            <input #hourTimepicker=timepickerDirective pachaTimepicker id="hour" type="text" class="timepicker"
+              name="hour" (timepickerClose)="hour = hourTimepicker.timepickerInstance.time">
             <label for="hour">Hora</label>
           </div>
         </div>

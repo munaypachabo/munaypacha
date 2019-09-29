@@ -30,8 +30,13 @@ export class ContactAntFormComponent implements OnInit {
   }
 
   contactAnt(ant: Ant): void {
-    const message = `Estimada Sr(a). ${ant.name}, mi nombre es ${this.name} vivo en la ${this.address}, tengo ${this.trashQuantity} aprox. de ${this.trashType}; quisiera que por favor pase a recoger este ${this.day} a las ${this.hour}`;
+    const message = `Estimado(a) Sr(a). ${ant.name}, mi nombre es ${this.name} y vivo en la ${this.address}. Tengo ${this.trashQuantity} aprox. de ${this.trashType}; quisiera que por favor pase a recoger este ${this.day} a las ${this.hour} horas`;
     const whatsappLink = `https://api.whatsapp.com/send?phone=591${ant.cellphone}&text=${message}`;
     window.open(whatsappLink, '_blank');
+  }
+
+  setDay(date: Date): void {
+    console.log(date);
+    this.day = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`;
   }
 }
