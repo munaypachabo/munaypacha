@@ -15,7 +15,7 @@ const routes: Routes = [
     component: CentersMapComponent
   },
   {
-    path: 'perfil',
+    path: 'perfil/:id',
     component: CenterProfileComponent
   }
 ];

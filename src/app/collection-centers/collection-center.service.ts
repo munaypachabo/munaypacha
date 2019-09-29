@@ -21,4 +21,10 @@ export class CollectionCenterService {
   getAll(): Observable<CollectionCenter[]> {
     return this.centersCollection.valueChanges();
   }
+
+  getById(id: string): Observable<CollectionCenter> {
+    return this.db
+      .doc<CollectionCenter>(`collection-centers/${id}`)
+      .valueChanges();
+  }
 }
