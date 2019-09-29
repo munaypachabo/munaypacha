@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CollectionCentersComponent } from './collection-centers.component';
 import { CentersMapComponent } from './centers-map/centers-map.component';
+import { CenterProfileComponent } from './center-profile/center-profile.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'mapa',
     component: CentersMapComponent
+  },
+  {
+    path: 'perfil',
+    component: CenterProfileComponent
   }
 ];
 
