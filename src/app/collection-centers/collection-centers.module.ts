@@ -6,9 +6,14 @@ import { CollectionCentersComponent } from './collection-centers.component';
 import { CollectionCenterService } from './collection-center.service';
 import { CentersMapComponent } from './centers-map/centers-map.component';
 import { MapModule } from '../shared/components/map/map.module';
+import { CenterProfileComponent } from './center-profile/center-profile.component';
 
 @NgModule({
-  declarations: [CollectionCentersComponent, CentersMapComponent],
+  declarations: [
+    CollectionCentersComponent,
+    CentersMapComponent,
+    CenterProfileComponent
+  ],
   imports: [CommonModule, CollectionCentersRoutingModule, MapModule],
   providers: [CollectionCenterService]
 })

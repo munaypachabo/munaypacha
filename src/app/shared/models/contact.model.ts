@@ -5,6 +5,7 @@ interface Position {
 
 export interface Contact {
   id: string;
+  pic?: string;
   name: string;
   phone: string;
   cellphone: string;
