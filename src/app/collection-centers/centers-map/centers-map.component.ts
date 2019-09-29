@@ -18,4 +18,8 @@ export class CentersMapComponent implements OnInit {
   ngOnInit(): void {
     this.collectionCenters$ = this.centersService.getAll();
   }
+
+  seeCenterData(center: CollectionCenter): void {
+    console.log(center);
+  }
 }

@@ -25,7 +25,6 @@ export class ContactAntFormComponent implements OnInit {
   contactAnt(): void {
     console.log(this.name, this.address, this.trashType, this.trashQuantity, this.day, this.hour, this.cellphone);
     this.message = 'https://api.whatsapp.com/send?phone=59175997855&text=Buenas noches señora, por favor hubiquenos en esta dirección http://maps.google.com/?ll=-17.3989886,-66.144346';
-    // window.location.href = 
   }
 
 }

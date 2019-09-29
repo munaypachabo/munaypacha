@@ -1,1 +1,3 @@
-<pacha-map [locations]="collectionCenters$"></pacha-map>
+<ng-container *ngIf="(collectionCenters$ | async) as centers">
+  <pacha-map [items]="centers" (triggerItemAction)="seeCenterData($event)"></pacha-map>
+</ng-container>
