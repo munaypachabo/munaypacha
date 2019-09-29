@@ -9,7 +9,6 @@ import { SelectModule } from '../shared/directives/select/select.module';
 import { DatepickerModule } from '../shared/directives/datepicker/datepicker.module';
 import { TimepickerModule } from '../shared/directives/timepicker/timepicker.module';
 
-
 @NgModule({
   declarations: [ContactAntFormComponent, AntProfileComponent],
   imports: [
@@ -21,4 +20,4 @@ import { TimepickerModule } from '../shared/directives/timepicker/timepicker.mod
     TimepickerModule
   ]
 })
-export class ContactAntModule { }
+export class ContactAntModule {}
