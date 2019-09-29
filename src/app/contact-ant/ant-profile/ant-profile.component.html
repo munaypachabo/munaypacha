@@ -1,12 +1,12 @@
 <div class="container">
   <div class="center-align">
-    <h5>Estas ayudando a doña:</h5>
-    <h5>Lupe Meneces</h5>
+    <h5>Estas ayudando a:</h5>
+    <h5>{{ant.name}}</h5>
     <br>
     <img class="circle responsive-im"
-      src="http://2.bp.blogspot.com/_mK1SR8qvlwA/S4LSH1nGrDI/AAAAAAAAABw/g-LhCaPEGSw/s400/ni_a_quime_a2.jpg">
+      [src]="ant.pic">
     <p>
-      Doña Lupe trabaja de lunes a jueves recogiendo botellas para poder mantener a sus 3 hijitos de 2, 3 y 4 años.
+      {{ant.bio}}
     </p>
     <h6>Gracias por hacer de este mundo un lugar mejor!!</h6>
   </div>
@@ -14,10 +14,10 @@
   <div class="row">
       <div class="center-align">
           <div class="inline">
-              <a href="https://api.whatsapp.com/send?phone=59175997855&text=Buenas noches señora, por favor hubiquenos en esta dirección http://maps.google.com/?ll=-17.3989886,-66.144346" class="btn-floating btn-large waves-effect waves-light green"><i class="fab fa-whatsapp"></i></a>
+              <a routerLink="/contactar-hormiga/formulario" class="btn-floating btn-large waves-effect waves-light green"><i class="fab fa-whatsapp"></i></a>
           </div>
           <div class="inline">
-              <a href="tel:+59175997855" class="btn-floating btn-large waves-effect waves-light green"><i class="fas fa-phone"></i></a>
+              <a [href]="antCellphone" class="btn-floating btn-large waves-effect waves-light green"><i class="fas fa-phone"></i></a>
           </div>
       </div>
   </div>
