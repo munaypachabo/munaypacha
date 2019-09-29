@@ -4,7 +4,8 @@
       <h5>Centro de acopio:</h5>
       <h5>{{ collectionCenter.name }}</h5>
       <br>
-      <img class="circle responsive-img" [src]="collectionCenter.pic ? collectionCenter.pic : '../../../assets/images/centroAcopio.png'">
+      <img class="circle responsive-img"
+        [src]="collectionCenter.pic ? collectionCenter.pic : '../../../assets/images/centroAcopio.png'">
     </div>
     <br>
     <div class="row">
@@ -21,11 +22,14 @@
             </div>
             <div class="row">
               <p class="col s5 m3">Celular:</p>
-              <p class="col s7 m7"><a [href]="'tel:+591' + collectionCenter.cellphone">{{ collectionCenter.cellphone }}</a></p>
+              <p class="col s7 m7"><a
+                  [href]="'tel:+591' + collectionCenter.cellphone">{{ collectionCenter.cellphone }}</a></p>
             </div>
             <div class="row">
               <p class="col s5 m3">Dirección:</p>
-              <p class="col s7 m7"><a [href]="'https://www.google.com/maps/search/?api=1&query=' + collectionCenter.position.lat + ',' + collectionCenter.position.lng + '&zoom=20'" target="_blank" rel="noopener noreferrer">{{ collectionCenter.address }}</a></p>
+              <p class="col s7 m7"><a
+                  [href]="'https://www.google.com/maps/search/?api=1&query=' + collectionCenter.position.lat + ',' + collectionCenter.position.lng + '&zoom=20'"
+                  target="_blank" rel="noopener noreferrer">{{ collectionCenter.address }}</a></p>
             </div>
           </div>
           <div class="col s12 m6">

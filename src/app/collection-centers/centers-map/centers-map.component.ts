@@ -13,6 +13,7 @@ import { CollectionCenter } from '../../shared/models/collection-center.model';
 })
 export class CentersMapComponent implements OnInit {
   collectionCenters$: Observable<CollectionCenter[]>;
+  defaultMapImage = 'assets/images/recycle.png';
 
   constructor(
     private router: Router,
