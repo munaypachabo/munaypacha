@@ -3,7 +3,7 @@
     <div class="center-align">
       <h5>Estás ayudando a {{ ant.name }}</h5>
       <br>
-      <img class="circle responsive-img" [src]="ant.pic">
+      <img class="circle responsive-img" [src]="ant.pic ? ant.pic : '../../../assets/images/no-photo.png'">
       <p>
         {{ ant.bio }}
       </p>
@@ -12,7 +12,7 @@
     <br>
     <div class="row">
       <div class="center-align">
-        <div class="inline">
+        <div class="inline" *ngIf="ant.hasSmartphone">
           <a [routerLink]="['/contactar-hormiga/formulario', antId]"
             class="btn-floating btn-large waves-effect waves-light">
             <i class="fab fa-whatsapp"></i>
