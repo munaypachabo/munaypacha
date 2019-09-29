@@ -1,3 +1,7 @@
-<ng-container *ngIf="(collectionCenters$ | async) as centers">
-  <pacha-map [items]="centers" (triggerItemAction)="seeCenterData($event)" [defaultItemImage]="defaultMapImage"></pacha-map>
+<ng-container *ngIf="(collectionCenters$ | async) as centers; else spinner">
+  <pacha-map [items]="centers" (triggerItemAction)="seeCenterData($event)" [defaultItemImage]="defaultMapImage">
+  </pacha-map>
 </ng-container>
+<ng-template #spinner>
+  <pacha-spinner-loader></pacha-spinner-loader>
+</ng-template>

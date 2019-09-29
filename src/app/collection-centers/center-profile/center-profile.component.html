@@ -17,8 +17,14 @@
               <p class="col s7 m7">{{ collectionCenter.name }}</p>
             </div>
             <div class="row">
+              <p class="col s5 m3">Contacto:</p>
+              <p class="col s7 m7">{{ collectionCenter.contact }}</p>
+            </div>
+            <div class="row">
               <p class="col s5 m3">Teléfono:</p>
-              <p class="col s7 m7">{{ collectionCenter.phone }}</p>
+              <p class="col s7 m7">
+                <a [href]="'tel:+5914' + collectionCenter.phone">
+                  {{ collectionCenter.phone }}</a></p>
             </div>
             <div class="row">
               <p class="col s5 m3">Celular:</p>
@@ -31,9 +37,14 @@
                   [href]="'https://www.google.com/maps/search/?api=1&query=' + collectionCenter.position.lat + ',' + collectionCenter.position.lng + '&zoom=20'"
                   target="_blank" rel="noopener noreferrer">{{ collectionCenter.address }}</a></p>
             </div>
-          </div>
-          <div class="col s12 m6">
-
+            <div class="row">
+              <p class="col s5 m3">Zona:</p>
+              <p class="col s7 m7">{{ collectionCenter.zone }}</p>
+            </div>
+            <div class="row">
+              <p class="col s5 m3">Recompensa:</p>
+              <p class="col s7 m7">{{ collectionCenter.data }}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { CollectionCenterService } from './collection-center.service';
 import { CentersMapComponent } from './centers-map/centers-map.component';
 import { CenterProfileComponent } from './center-profile/center-profile.component';
 import { MapModule } from '../shared/components/map/map.module';
+import { SpinnerLoaderModule } from '../shared/components/spinner-loader/spinner-loader.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MapModule } from '../shared/components/map/map.module';
     CommonModule,
     RouterModule,
     CollectionCentersRoutingModule,
-    MapModule
+    MapModule,
+    SpinnerLoaderModule
   ],
   providers: [CollectionCenterService]
 })

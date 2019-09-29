@@ -1,3 +1,6 @@
-<ng-container *ngIf="(ants$ | async) as ants">
+<ng-container *ngIf="(ants$ | async) as ants; else spinner">
   <pacha-map [items]="ants" (triggerItemAction)="seeAntData($event)" [defaultItemImage]="defaultMapImage" [defaultPinImage]="defaultPinImage"></pacha-map>
 </ng-container>
+<ng-template #spinner>
+  <pacha-spinner-loader></pacha-spinner-loader>
+</ng-template>

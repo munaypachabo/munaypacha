@@ -15,6 +15,7 @@ import { DatepickerModule } from '../shared/directives/datepicker/datepicker.mod
 import { TimepickerModule } from '../shared/directives/timepicker/timepicker.module';
 import { MapModule } from '../shared/components/map/map.module';
 import { MapService } from '../shared/components/map/map.service';
+import { SpinnerLoaderModule } from '../shared/components/spinner-loader/spinner-loader.module';
 
 @NgModule({
   declarations: [ContactAntFormComponent, AntProfileComponent, AntMapComponent],
@@ -27,7 +28,8 @@ import { MapService } from '../shared/components/map/map.service';
     SelectModule,
     DatepickerModule,
     TimepickerModule,
-    MapModule
+    MapModule,
+    SpinnerLoaderModule
   ],
   providers: [AntService, MapService]
 })
